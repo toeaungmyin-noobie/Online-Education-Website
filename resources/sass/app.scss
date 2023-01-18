@@ -1,0 +1,165 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&family=Roboto:wght@100;300;500&display=swap");
+
+// Variables
+@import "variables";
+// bootsrrap
+@import "bootstrap/scss/bootstrap.scss";
+// icon libraries
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "@fortawesome/fontawesome-free/css/all.css";
+//animation libraries
+@import "glider-js/glider.min.css";
+@import "animate.css/animate.min.css";
+
+// .nav-link {
+// 	color: #eee !important;
+// 	&:hover {
+// 		color: #fff !important;
+// 	}
+// }
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+.cus-font {
+    font-family: "Raleway", sans-serif !important;
+}
+
+// first gliders
+.glider-prev {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 20px;
+    z-index: 1500;
+    z-index: 1500;
+    width: 40px;
+    height: 40px;
+    background: $white;
+    border-radius: 50%;
+}
+//second gliders
+.glider-next {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1500;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    background: $white;
+    border-radius: 50%;
+}
+
+.item-img {
+    width: 100% !important;
+    height: 200px;
+    // object-fit: cover;
+    // object-position: top;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.avater-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-card {
+    .blog-img {
+        height: 200px;
+        object-fit: cover;
+        object-position: top;
+    }
+    transition: 0.5s;
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $box-shadow-lg;
+    }
+}
+
+.mb-150 {
+    margin-bottom: 150px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.form-img {
+    border-radius: 15px 0px 0px 15px;
+    // height: 500px;
+}
+
+ul {
+    .movie-li:hover {
+        background-color: $gray-500;
+        color: white;
+    }
+}
+
+.listItemGp {
+    background-color: $light;
+    li {
+        background-color: whitesmoke;
+    }
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+table {
+    // margin: 0px!important;
+    td {
+        padding: 15px;
+        border-bottom: 1px solid rgb(106, 106, 106);
+        border-collapse: collapse;
+    }
+}
+
+.Border {
+    border-bottom: 1px solid black;
+}
+
+.progress-bg {
+    background-color: #39bdc8;
+}
+
+@include media-breakpoint-down(md) {
+    .Browse-Btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .Instructor-Btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.search-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0;
+}
+.dz-default {
+    width: 100%;
+}
+.cover-fit {
+    min-height: 130px;
+    width: 250px;
+    object-fit: fill;
+}
+.cover-fit-lesson {
+    object-fit: cover;
+}
