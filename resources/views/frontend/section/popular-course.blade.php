@@ -70,7 +70,7 @@
 						</button>
 					</div>
 					<div class="glider">
-						@foreach ($free_courses as $course)
+						@foreach ($popular_courses as $course)
 							<div class="card mx-3 img-card border-0 shadow">
 								<div class="">
 									<img class="item-img" src="{{ asset('images/courses-cover/' . $course->cover_url) }}" alt="" />
@@ -129,7 +129,7 @@
 						</button>
 					</div>
 					<div class="Glider">
-						@foreach ($popular_courses as $course)
+						@foreach ($free_courses as $course)
 							<div class="card mx-3 img-card border-0 shadow">
 								<div class="">
 									<img class="item-img" src="{{ asset('images/courses-cover/' . $course->cover_url) }}" alt="" />

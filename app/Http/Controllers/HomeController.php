@@ -32,7 +32,7 @@ class HomeController extends Controller
         $courses = Course::all();
 
         $free_courses = $courses->where('price', '0');
-        $popular_courses = $courses->take(6);
+        $popular_courses = $courses;
 
         // The quick brown fox (...)
         $free_courses->map(function ($item, $key) {

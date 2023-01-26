@@ -17,9 +17,7 @@ $navbar-padding-y: 0.4rem;
 $navbar-nav-link-padding-x: 0.6rem;
 $nav-link-font-size: 1.1rem;
 $navbar-brand-padding-y: 0.5rem;
-// $dropdown-border-width: 0px;
-// $dropdown-item-padding-x: 2px;
-// $dropdown-item-padding-y: 0px;
+
 $progress-height: 0.7rem;
 $btn-padding-x-lg: 35px;
 $btn-padding-y-lg: 5px;
@@ -234,4 +232,9 @@ table {
 .navbar-toggler {
     border: 2px solid white !important;
     background-color: white !important;
+}
+.cover-fit {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
 }

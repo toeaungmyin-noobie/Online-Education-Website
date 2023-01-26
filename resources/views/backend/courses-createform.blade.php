@@ -74,6 +74,8 @@
 
 @endsection
 @push('js')
+	<script src="https://cdn.tiny.cloud/1/yz5ufmqb3jje51894s3euots7qm8ita6zk7fwodrs5fipaik/tinymce/6/tinymce.min.js"
+		referrerpolicy="origin"></script>
 	<script>
 		tinymce.init({
 			selector: '#course-overview',

@@ -21,6 +21,7 @@
         "bootstrap": "^5.2.2",
         "bootstrap-icons": "^1.9.1",
         "chart.js": "^4.0.1",
+        "fontawesome-free": "^1.0.4",
         "glider-js": "^1.7.7",
         "sass": "^1.55.0",
         "scrollreveal": "^4.0.9",

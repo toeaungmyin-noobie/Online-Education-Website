@@ -15,9 +15,9 @@
 							<h4 class="pt-3 p-1 pb-0 text-start">{{ $course->title }}</h4>
 							<div class="p-1 text-muted text-start">{!! $course->overview !!}</div>
 							<div class="dropdown position-absolute top-0 end-0 me-3 mt-1">
-								<button class="btn btn-outline-primary border border-3 rounded-circle p-3 text-primary" data-bs-toggle="dropdown"
-									type="button" aria-expanded="false">
-									<i class="fa-solid fa-ellipsis-vertical mt-1"></i></i>
+								<button class="btn btn-outline-primary border border-3 rounded-circle px-3 text-primary"
+									data-bs-toggle="dropdown" type="button" aria-expanded="false">
+									<i class="fa-solid fa-ellipsis-vertical mt-1"></i>
 								</button>
 								<ul class="dropdown-menu">
 									<li>
@@ -70,7 +70,6 @@
 							<tr>
 								<th>#</th>
 								<th>Title</th>
-								<th>watched</th>
 								<th>Created_at</th>
 								<th>Action</th>
 							</tr>
@@ -80,14 +79,13 @@
 								<tr class="">
 									<td scope="row">{{ $item->id }}</td>
 									<td>{{ $item->title }}</td>
-									<td><i class="fa-solid fa-eye me-2"></i>22</td>
 									<td>{{ $item->created_at }}</td>
 									<td>
 										<div class="d-flex justify-content-around">
 											<div class="dropdown">
-												<button class="btn btn-outline-primary border border-3 rounded-circle p-3 " data-bs-toggle="dropdown"
+												<button class="btn btn-outline-primary border border-3 rounded-circle px-3 " data-bs-toggle="dropdown"
 													type="button" aria-expanded="false">
-													<i class="fa-solid fa-ellipsis-vertical mt-1"></i></i>
+													<i class="fa-solid fa-ellipsis-vertical mt-1"></i>
 												</button>
 												<ul class="dropdown-menu">
 													<li>
@@ -105,7 +103,7 @@
 													<li>
 														<a class="dropdown-item"
 															href="{{ route('frontend.lesson-show', ['id' => $course->id, 'active_lesson' => $item->id]) }}">
-															<i class="fa-solid fa-ellipsis-vertical  me-3"></i>Detail
+															<i class="fa-solid fa-ellipsis-vertical ms-2 me-3"></i>Detail
 														</a>
 													</li>
 

@@ -3,18 +3,8 @@ import * as bootstrap from "bootstrap";
 import Typed from "typed.js";
 import ScrollReveal from "scrollreveal";
 import Glider from "glider-js";
-import Swal from "sweetalert2";
 import "animate.css";
-
-// let typed = new Typed('.element', {
-//     strings: ["Learning Application","Learning Programming"],
-//     typeSpeed: 30,
-//     backSpeed: 20,
-//     backDelay: 1500,
-//     loop: true,
-//     showCursor: true,
-//     // cursorChar: '|',
-//   });
+import "fontawesome-free/css/all.min.css";
 
 let slideDown = {
     distance: "50px",
@@ -133,44 +123,3 @@ new Glider(document.querySelector(".Glider"), {
         },
     ],
 });
-
-// const UserSignIn = document.getElementById("UserSignIn");
-// UserSignIn.addEventListener("click", () => {
-//     Swal.fire({
-//         title: "Login Form",
-//         html: `
-//     <div  style="margin-bottom: 40px;">
-//     <label for="login">Enter Username</label>
-//     <input type="text" id="login" class="swal2-input" placeholder="Username">
-//     </div>
-//     <div  style="margin-bottom: 30px;">
-//     <label for="email">Enter Your Email</label>
-//     <input type="email" id="email" class="swal2-input" placeholder="Email">
-//     </div>
-//     <div>
-//     <label for="password">Enter Password</label>
-//     <input type="password" id="password" class="swal2-input" placeholder="password">
-//     </div>`,
-//         confirmButtonText: "Sign in",
-//         focusConfirm: false,
-//         preConfirm: () => {
-//             const login = Swal.getPopup().querySelector("#login").value;
-//             const password = Swal.getPopup().querySelector("#password").value;
-//             const email = Swal.getPopup().querySelector("#email").value;
-//             if (!login || !password || !email) {
-//                 Swal.showValidationMessage(
-//                     `Please enter login and password and email`
-//                 );
-//             }
-//             return { login: login, password: password, email: email };
-//         },
-//     }).then((result) => {
-//         Swal.fire(
-//             `
-//       Login: ${result.value.login}
-//       Password: ${result.value.password}
-//       Email:${result.value.email}
-//     `.trim()
-//         );
-//     });
-// });

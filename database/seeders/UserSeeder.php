@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
 use App\Models\User;
+use App\Models\User_Course;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -17,25 +19,26 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Lucifer Burma',
-            'email' => 'luciferburma@gmail.com',
-            'password' => Hash::make('12345678'),
-        ])->assignRole('admin');
-        User::create([
-            'name' => 'Instructor',
-            'email' => 'instructor@gmail.com',
-            'password' => Hash::make('12345678'),
-        ])->assignRole('instructor');
+        // User::create([
+        //     'name' => 'Lucifer Burma',
+        //     'email' => 'luciferburma@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        // ])->assignRole('admin');
+        // User::create([
+        //     'name' => 'Instructor',
+        //     'email' => 'instructor@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        // ])->assignRole('instructor');
 
         $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
-            User::create([
+            $user = User::create([
                 'name' => $faker->firstName(),
                 'email' => $faker->email(),
                 'password' => Hash::make('12345678'),
 
             ])->assignRole('user');
+            $user->courses()->attach(5);
         };
     }
 }
