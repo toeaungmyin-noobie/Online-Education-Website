@@ -3,18 +3,24 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Commands\CreateRole;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+
         $roles = Role::all();
-        // dd($users->course);
+        if (Auth::user()->getRoleNames()->first() != 'admin') {
+            $users = Course::find(Auth::user()->id)->user;
+        } else {
+            $users = User::all();
+        }
         return view('backend.users-table', compact('users', 'roles'));
     }
     public function edit($id)

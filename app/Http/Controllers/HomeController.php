@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
@@ -27,22 +28,33 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        $courses = Course::orderBy('created_at', 'DESC')->take(6)->get();
-        $courses->map(function ($item, $key) {
+        $users = User::all();
+        $courses = Course::all();
+
+        $free_courses = $courses->where('price', '0');
+        $popular_courses = $courses->take(6);
+
+        // The quick brown fox (...)
+        $free_courses->map(function ($item, $key) {
             if ($item->price == '0') {
                 return $item->price = 'free';
             } else {
                 return $item->price = $item->price . " MMK";
             }
         });
-
-        return view('frontend.home', compact('courses', 'user'));
+        $popular_courses->map(function ($item, $key) {
+            if ($item->price == '0') {
+                return $item->price = 'free';
+            } else {
+                return $item->price = $item->price . " MMK";
+            }
+        });
+        return view('frontend.home', compact('free_courses', 'popular_courses', 'users'));
     }
     public function browseCourses()
     {
         $courses = Course::orderBy('created_at', 'DESC')->get();
-        $user = User::all();
+        $users = User::all();
         $courses->map(function ($item, $key) {
             if ($item->price == '0') {
                 return $item->price = 'free';
@@ -51,7 +63,7 @@ class HomeController extends Controller
             }
         });
         // dd($courses[1]->user->find($courses[1]->instructor_id)->name);
-        return view('frontend.browse-courses', compact('courses', 'user'));
+        return view('frontend.browse-courses', compact('courses', 'users'));
     }
     public function show($id)
     {
@@ -72,20 +84,14 @@ class HomeController extends Controller
             return to_route('frontend.home');
         }
     }
-    public function course_entroll($id)
+    public function course_entroll(Request $request)
     {
-        $this->middleware('auth');
-        $course = Course::find($id);
+        $course = Course::find($request->id);
         $user = Auth::user();
         if (!$course->user->contains($user)) {
             $course->user()->attach([$user->id]);
         }
-        $active_lesson = $course->lesson[0]->id;
-        if (isset($course->lesson)) {
-            return to_route('frontend.course-detail', ['id' => $id]);
-        } else {
-            return to_route('frontend.home');
-        }
+        return to_route('frontend.home');
     }
     public function free_course()
     {
@@ -99,5 +105,28 @@ class HomeController extends Controller
             }
         });
         return view('frontend.browse-courses', compact('courses', 'user'));
+    }
+    public function popular_course()
+    {
+        $courses = Course::where('price', 0)->get();
+        $user = User::all();
+        $courses->map(function ($item, $key) {
+            if ($item->price == '0') {
+                return $item->price = 'free';
+            } else {
+                return $item->price = $item->price . " MMK";
+            }
+        });
+        return view('frontend.browse-courses', compact('courses', 'user'));
+    }
+    public function profile()
+    {
+        return view('frontend.profile');
+    }
+    public function course_outline($id)
+    {
+        $course = Course::find($id);
+        $active_lesson = $course->lesson[0]->id;
+        return view('frontend.course-outline', compact('course', 'active_lesson'));
     }
 }

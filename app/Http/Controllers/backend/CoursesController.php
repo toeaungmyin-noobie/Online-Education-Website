@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
+use App\Models\User_Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -116,5 +117,11 @@ class CoursesController extends Controller
         Storage::delete('/images/courses-cover/' . $course->cover_url);
         $course->delete();
         return to_route('dashboard.courses');
+    }
+    public function removeUserFromCourse($course_id, $user_id)
+    {
+        $user_course = User_Course::where('course_id', $course_id)->where('user_id', $user_id)->first();
+        $user_course->delete();
+        return back()->with('success', 'User was removed successfully');
     }
 }

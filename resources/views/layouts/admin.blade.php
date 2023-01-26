@@ -28,9 +28,9 @@
 		<div class="container-fluid p-0 ">
 			<div class="row g-0 ">
 				<div class="col-lg-2">
-					<nav class="navbar navbar-expand-lg navbar-dark bg-dark align-items-baseline vh-100 m-0" style="z-index: 20">
+					<nav class="navbar navbar-expand-lg navbar-dark bg-primary align-items-baseline vh-100 m-0" style="z-index: 20">
 						<div class="container-fluid p-0 flex-column">
-							<a class="navbar-brand" href="#" aria-current="page">ionic solutions</a>
+							<a class="navbar-brand" href="#" aria-current="page">OEP</a>
 							<div class="container mx-auto">
 								<ul class="navbar-nav flex-column">
 									<li class="nav-item">
@@ -64,9 +64,9 @@
 						</div>
 					</nav>
 				</div>
-				<div class="col-lg-10 overflow-scroll vh-100 bg-secondary top-nav-con position-relative shadow">
+				<div class="col-lg-10 overflow-scroll vh-100 bg-white top-nav-con position-relative shadow">
 
-					<nav class="navbar navbar-expand-lg navbar-white bg-white p-0 shadow-sm position-fixed top-0 col-lg-10"
+					<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0 shadow-sm position-fixed top-0 col-lg-10"
 						style="z-index: 10">
 						<div class="container-fluid my-2">
 
@@ -108,7 +108,7 @@
 							</div>
 						</div>
 					</nav>
-					<main class="main-section mt-5 p-5">
+					<main class="mt-5 p-5">
 						<section class="h-100 ">
 							@yield('content')
 						</section>

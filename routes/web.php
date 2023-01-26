@@ -27,10 +27,13 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 Route::get('/browse-courses', [HomeController::class, 'browseCourses'])->name('frontend.browseCourses');
 Route::get('/free-courses', [HomeController::class, 'free_course'])->name('frontend.freeCourse');
+Route::get('/course/{id}/outline', [HomeController::class, 'course_outline'])->name('frontend.course.outline');
 Route::get('/courses/{id}/detail', [HomeController::class, 'show'])->name('frontend.course-detail');
 Route::get('/courses/{id}/lesson/{active_lesson}/detail', [HomeController::class, 'lesson_show'])->name('frontend.lesson-show');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/courses/{id}/enroll-request', [HomeController::class, 'course_entroll'])->name('frontend.enroll-request');
+    Route::post('/courses/enroll-request', [HomeController::class, 'course_entroll'])->name('frontend.enroll-request');
+    Route::post('/instructor/request', [HomeController::class, 'instructor_request'])->name('instructor.request');
+    Route::get('/profile', [HomeController::class, 'profile'])->name('frontend.profile');
 });
 // Route for dashboard
 Route::middleware(['auth', 'role:admin|instructor'])->prefix('admin')->group(function () {
@@ -48,6 +51,8 @@ Route::middleware(['auth', 'role:admin|instructor'])->prefix('admin')->group(fun
     Route::get('/courses/create', [CoursesController::class, 'create'])->name('dashboard.courses.create');
     Route::post('/courses/store', [CoursesController::class, 'store'])->name('dashboard.courses.store');
     Route::get('/courses/{id}/delete', [CoursesController::class, 'destroy'])->name('dashboard.courses.delete');
+    Route::get('/courses/{course_id}/user/{user_id}/remove', [CoursesController::class, 'removeUserFromCourse'])->name('dashboard.courses.remove.user');
+
 
     // routes for lessons
     Route::get('/courses/lessons', [LessonsController::class, 'index'])->name('dashboard.lessons');

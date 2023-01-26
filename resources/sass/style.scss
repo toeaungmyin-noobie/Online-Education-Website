@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
+
+$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Fasthand", "cursive";
+* {
+    font-family: "Raleway", sans-serif;
+}
+
+.cus-font {
+    font-family: "Fasthand", "cursive" !important;
+}
+
+$primary: #017e84;
+$warning: #ffe055;
+$success: #fff;
+$navbar-padding-y: 0.4rem;
+$navbar-nav-link-padding-x: 0.6rem;
+$nav-link-font-size: 1.1rem;
+$navbar-brand-padding-y: 0.5rem;
+// $dropdown-border-width: 0px;
+// $dropdown-item-padding-x: 2px;
+// $dropdown-item-padding-y: 0px;
+$progress-height: 0.7rem;
+$btn-padding-x-lg: 35px;
+$btn-padding-y-lg: 5px;
+
+@import "../../node_modules/glider-js/glider.min.css";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+@import "../../node_modules/animate.css/animate.min.css";
+
+.nav-link {
+    color: #fff !important;
+    &:hover {
+        color: #264653 !important;
+    }
+}
+
+.Browse-Btn {
+    background-color: #264653;
+    color: white !important;
+    padding: 15px 20px;
+    &:hover {
+        background-color: #2a6a83;
+        color: white;
+    }
+}
+
+// .Browse-img{
+//     background-color: $primary!important;
+// }
+
+.Instructor-Btn {
+    padding: 15px 20px;
+}
+
+.glider-prev {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    // left: -30px;
+    width: 40px;
+    height: 40px;
+    background: $white;
+    border-radius: 50%;
+}
+
+.glider-pre {
+    margin-right: -10px;
+    z-index: 1500;
+    width: 40px;
+    height: 40px;
+    background: $gray-200;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+@include media-breakpoint-down(md) {
+    .glider-pre {
+        margin-right: -15px;
+    }
+
+    .glider-nex {
+        margin-right: -5px;
+    }
+
+    #LogIn {
+        width: 100%;
+    }
+
+    #SignUp {
+        width: 100%;
+    }
+
+    .nav-item {
+        border-bottom: 1px solid white;
+    }
+
+    .Browse-Btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .Instructor-Btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.glider-next {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    // right: -25px;
+    width: 40px;
+    height: 40px;
+    background: $white;
+    border-radius: 50%;
+}
+
+.glider-nex {
+    margin-left: -10px;
+    z-index: 1500;
+    width: 40px;
+    height: 40px;
+    background: $gray-200;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.img-card {
+    height: 450px !important;
+    overflow: hidden;
+    border-radius: 8px !important;
+
+    .item-img {
+        width: 100% !important;
+        height: 200px;
+        // object-fit: cover;
+        // object-position: top;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+}
+
+.avater-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-card {
+    .blog-img {
+        height: 200px;
+        object-fit: cover;
+        object-position: top;
+        transition: 0.5s;
+        transition-duration: 1s;
+        overflow: hidden;
+    }
+    border-radius: 15px;
+    overflow: hidden;
+    &:hover {
+        .blog-img {
+            transform: scale(1.07);
+        }
+    }
+}
+
+.mb-150 {
+    margin-bottom: 150px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.form-img {
+    border-radius: 15px 0px 0px 15px;
+    // height: 500px;
+}
+
+ul {
+    .movie-li {
+        transition: 0.3s;
+    }
+    .movie-li:hover {
+        background-color: $gray-500;
+        color: white;
+        // transform: translateY(-7px);
+    }
+}
+
+.listItemGp {
+    background-color: $light;
+    li {
+        background-color: whitesmoke;
+        // color: white!important;
+    }
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+table {
+    // margin: 0px!important;
+    td {
+        padding: 15px;
+        border-bottom: 1px solid rgb(106, 106, 106);
+        border-collapse: collapse;
+    }
+}
+
+.Border {
+    border-bottom: 1px solid black;
+}
+
+.progress-bg {
+    background-color: #39bdc8;
+}
+
+.light-dark-icon {
+    height: 30px;
+}
+
+.navbar-toggler {
+    border: 2px solid white !important;
+    background-color: white !important;
+}

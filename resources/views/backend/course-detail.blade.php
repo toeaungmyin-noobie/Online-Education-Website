@@ -15,8 +15,8 @@
 							<h4 class="pt-3 p-1 pb-0 text-start">{{ $course->title }}</h4>
 							<div class="p-1 text-muted text-start">{!! $course->overview !!}</div>
 							<div class="dropdown position-absolute top-0 end-0 me-3 mt-1">
-								<button class="btn btn-outline-dark border border-3 rounded-circle px-3" data-bs-toggle="dropdown" type="button"
-									aria-expanded="false">
+								<button class="btn btn-outline-primary border border-3 rounded-circle p-3 text-primary" data-bs-toggle="dropdown"
+									type="button" aria-expanded="false">
 									<i class="fa-solid fa-ellipsis-vertical mt-1"></i></i>
 								</button>
 								<ul class="dropdown-menu">
@@ -85,7 +85,7 @@
 									<td>
 										<div class="d-flex justify-content-around">
 											<div class="dropdown">
-												<button class="btn btn-outline-dark border border-3 rounded-circle px-3" data-bs-toggle="dropdown"
+												<button class="btn btn-outline-primary border border-3 rounded-circle p-3 " data-bs-toggle="dropdown"
 													type="button" aria-expanded="false">
 													<i class="fa-solid fa-ellipsis-vertical mt-1"></i></i>
 												</button>
@@ -105,9 +105,10 @@
 													<li>
 														<a class="dropdown-item"
 															href="{{ route('frontend.lesson-show', ['id' => $course->id, 'active_lesson' => $item->id]) }}">
-															<i class="fa-solid fa-ellipsis-vertical ms-1 me-4"></i></i>Detail
+															<i class="fa-solid fa-ellipsis-vertical  me-3"></i>Detail
 														</a>
 													</li>
+
 												</ul>
 											</div>
 										</div>
@@ -117,9 +118,39 @@
 						</tbody>
 					</table>
 				</div>
+				<div class="col-lg-12 mb-3 bg-white shadow-sm rounded text-center">
+					<table class=" table table-borderless table-hover align-middle m-0 " id="user-table">
+						<thead class="">
+							<th scope="col">#</th>
+							<th scope="col">NAME</th>
+							@can('edit user')
+								<th scope="col">EMAIL</th>
+								<th scope="col">Created_at</th>
+								<th scope="col">ACTION</th>
+							@endcan
+						</thead>
+						<tbody>
+							@foreach ($course->user as $user)
+								@if ($user->getRoleNames() == 'admin')
+								@break
+							@endif
+							<tr>
+								<td>{{ $user->id }}</td>
+								<td>{{ $user->name }}</td>
+								<td>{{ $user->email }}</td>
+								<td>{{ $user->created_at }}</td>
+								<td>
+									<a class="btn btn-outline-danger"
+										href="{{ route('dashboard.courses.remove.user', ['course_id' => $course->id, 'user_id' => $user->id]) }}">Remove</a>
+								</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
-	</div>
+</div>
+</div>
 
 @endsection

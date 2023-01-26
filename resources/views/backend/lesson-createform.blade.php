@@ -12,17 +12,23 @@
 					<div class="mb-3">
 						<label class="form-label" for="title">Title</label>
 						<input class="form-control" id="title" name="title" type="text" aria-describedby="helpId" placeholder="">
-						<small class="text-muted" id="helpId">Help text</small>
+						@error('title')
+							<small class=" text-warning" id="helpId">{{ $message }}</small>
+						@enderror
 					</div>
 					<div class="mb-3">
 						<label class="form-label" for="video"></label>
 						<input class="form-control" id="video" name="video" type="file" aria-describedby="helpId" placeholder="">
-						<small class="text-muted" id="helpId">Help text</small>
+						@error('video')
+							<small class=" text-warning" id="helpId">{{ $message }}</small>
+						@enderror
 					</div>
 					<div class="mb-3">
 						<label class="form-label" for="description">Description</label>
 						<textarea class="form-control" id="description" name="description" type="text" aria-describedby="helpId"></textarea>
-						<small class="text-muted" id="helpId">Help text</small>
+						@error('description')
+							<small class=" text-warning" id="helpId">{{ $message }}</small>
+						@enderror
 					</div>
 					<button class="btn btn-primary d-flex ms-auto" type="submit">Create</button>
 				</form>

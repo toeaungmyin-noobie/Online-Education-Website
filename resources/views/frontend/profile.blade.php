@@ -2,131 +2,78 @@
 
 @section('title', 'Ionic LMS')
 @section('content')
-	<h1 class=" cus-font my-5 text-center animate__animated animate__tada">Your Profile</h1>
-	<section class=" container mb-5">
-		<div class="row ">
-			<div class=" col-12 col-md-6 col-lg-4">
-				<div class="card text-white border-0 shadow-sm">
-					<div class=" my-3">
-						<img class=" profile-img d-block mx-auto"
-							src="./images/young-asia-businessman-using-computer-laptop-talk-colleagues-about-plan-video-call-meeting-while-working-from-home-living-room.jpg"
-							alt="">
-					</div>
-					<div class=" card-body text-center px-0">
-						<h2 class=" text-black cus-font">John Blier</h4>
-							<h5 class=" text-black-50 my-3">
-								Full Stack Developer
-							</h5>
-							<p class=" text-black-50">
-								Lorem ipsum dolor, sit amet consectetur
-							</p>
-							<div class="mb-3">
-								<button class=" btn btn-outline-primary">Follow</button>
-								<button class=" btn btn-primary">Message</button>
+	<section id="profile">
+		<div class=" container">
+			<div class="row min-vh-100 justify-content-center align-items-center">
+				<div class=" col-lg-6">
+					<div class=" bg-white rounded shadow-sm p-4">
+						<div class=" text-center">
+							<img class=" profile-img" src="{{ asset('assets/backend/images/profile.jpg') }}" alt="">
+						</div>
+						<div>
+							<h4 class=" text-center mt-4" id="name">{{ Auth::user()->name }}</h4>
+							<div class=" d-flex justify-content-between align-items-center mt-4">
+								<p class=" mb-0 ps-3">email</p>
+								<p class=" mb-0" id="usermail">{{ Auth::user()->email }}</p>
 							</div>
-					</div>
-				</div>
-				<div class=" row  mt-3">
-					<ul class=" list-group bg-white pe-0 border-0">
-						<li class=" list-group-item profile-li d-flex justify-content-between align-items-center">
-							<div class="">
-								<i class=" bi bi-browser-chrome me-1" style="font-size: 20px;"></i>
-								<span class=" h5 ">Website</span>
-							</div>
-							<a class=" text-decoration-none text-black-50" href="#">www.google.com</a>
-						</li>
-						<li class=" list-group-item profile-li d-flex justify-content-between align-items-center">
-							<div class="">
-								<i class=" bi bi-github me-1 " style="font-size: 20px;color: rgb(131, 145, 145);"></i>
-								<span class=" h5 ">GitHub</span>
-							</div>
-							<a class=" text-decoration-none text-black-50" href="#">JohnBolt</a>
-						</li>
-						<li class=" list-group-item profile-li d-flex justify-content-between align-items-center">
-							<div class="">
-								<i class=" bi bi-instagram me-1" style="font-size: 20px;color: rgb(255, 0, 0);"></i>
-								<span class=" h5 ">Instagram</span>
-							</div>
-							<a class=" text-decoration-none text-black-50" href="#">JohnBool</a>
-						</li>
-						<li class=" list-group-item profile-li d-flex justify-content-between align-items-center">
-							<div class="">
-								<i class=" bi bi-twitter me-1" style="font-size: 20px;color: rgb(3, 127, 127);"></i>
-								<span class=" h5 ">Twitter</span>
-							</div>
-							<a class=" text-decoration-none text-black-50" href="#">JohnTwit</a>
-						</li>
-						<li class=" list-group-item profile-li d-flex justify-content-between align-items-center">
-							<div class="">
-								<i class=" bi bi-facebook me-1" style="font-size: 20px;color: rgb(33, 33, 145);"></i>
-								<span class=" h5 ">Facebook</span>
-							</div>
-							<a class=" text-decoration-none text-black-50" href="#">JohnFace</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class=" col-12 col-md-6 col-lg-8">
-				<div class="row mt-3 mt-lg-0">
-
-					<table class=" bg-white shadow-sm rounded">
-						<tr>
-							<td class=" h6">Full Name</td>
-							<td class=" text-black-50">JohnBolt Dollar</td>
-						</tr>
-						<tr>
-							<td class="  h6">Email</td>
-							<td class=" text-black-50">thihazawhaha@777.com</td>
-						</tr>
-						<tr>
-							<td class=" h6">Phone</td>
-							<td class=" text-black-50">Ph-000987678988</td>
-						</tr>
-						<tr>
-							<td class=" h6">Address</td>
-							<td class=" text-black-50">Manidalay,Patheingyi township,Dahattaw village</td>
-						</tr>
-						<tr>
-							<td class=" h6">Attend Class</td>
-							<td class=" text-black-50">Javascript and Php</td>
-						</tr>
-					</table>
-					<div class="row mt-4 ms-2 bg-white rounded-3 shadow-sm">
-						<div class="col-12">
-							<div class="row">
-								<div class=" p-3 ">
-									<p class=" mb-0">Website design</p>
-									<div class="progress">
-										<div class="progress-bar progress-bg" role="progressbar" aria-label="Animated striped example"
-											aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+							<div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="flush-headingOne">
+										<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+											type="button" aria-expanded="false" aria-controls="flush-collapseOne">
+											Attended Course
+										</button>
+									</h2>
+									<div class="accordion-collapse collapse show" id="flush-collapseOne" data-bs-parent="#accordionFlushExample"
+										aria-labelledby="flush-headingOne">
+										<div class="accordion-body">
+											<ul>
+												@foreach (Auth::user()->courses as $course)
+													<li>{{ $course->title }}</li>
+												@endforeach
+											</ul>
+										</div>
 									</div>
 								</div>
-								<div class=" p-3 ">
-									<p class=" mb-0">Javascript</p>
-									<div class="progress">
-										<div class="progress-bar progress-bg" role="progressbar" aria-label="Animated striped example"
-											aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-									</div>
-								</div>
-								<div class=" p-3 ">
-									<p class=" mb-0">Php</p>
-									<div class="progress">
-										<div class="progress-bar progress-bg " role="progressbar" aria-label="Animated striped example"
-											aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-									</div>
-								</div>
-								<div class=" p-3 ">
-									<p class=" mb-0">HTML</p>
-									<div class="progress">
-										<div class="progress-bar progress-bg " role="progressbar" aria-label="Animated striped example"
-											aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-									</div>
-								</div>
-								<div class=" p-3 ">
-									<p class=" mb-0">CSS</p>
-									<div class="progress">
-										<div class="progress-bar progress-bg " role="progressbar" aria-label="Animated striped example"
-											aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+							</div>
+							<div class=" text-center mt-3">
+								<a class="btn btn-outline-primary" href="{{ route('password.request') }}">Password Reset</a>
+								<a class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">Edit
+									Profile</a>
+								<a class=" btn btn-outline-primary" href="{{ route('logout') }}"
+									onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+									<i class="fa-solid fa-arrow-right-from-bracket me-2"></i>{{ __('Logout') }}
+								</a>
+								<form class="d-none" id="logout-form" action="{{ route('logout') }}" method="POST">
+									@csrf
+								</form>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+								aria-labelledby="staticBackdropLabel" aria-hidden="true" tabindex="-1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="staticBackdropLabel">Your Profile</h1>
+											<button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<form action="">
+												<input class=" form-control mb-3 border-0 shadow" id="Username" type="text" placeholder="Username">
+												<input class=" form-control mb-3 border-0 shadow" id="email" type="email" placeholder="email">
+												<input class=" form-control mb-3 border-0 shadow" id="pw" type="password" placeholder="password">
+												<div class=" form-check">
+													<input class=" form-check-input" id="showPwBtn" type="checkbox">
+													<label class=" form-check-label">show password</label>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+											<button class="btn btn-primary" id="SaveChangeBtn" data-bs-dismiss="modal" type="button">Save
+												Changes</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -135,6 +82,5 @@
 				</div>
 			</div>
 		</div>
-
 	</section>
 @endsection

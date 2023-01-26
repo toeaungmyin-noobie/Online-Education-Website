@@ -49,7 +49,7 @@
 											<i class="fa-solid fa-user-graduate me-2"></i>{{ $users->find($course->instructor_id)->name }}
 										</small><br>
 										<small class="text-muted">
-											<i class="fa-solid fa-circle-play me-2"></i>23
+											<i class="fa-solid fa-circle-play me-2"></i>
 										</small>
 									</span>
 								</div>

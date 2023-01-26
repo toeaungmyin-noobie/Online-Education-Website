@@ -8,8 +8,8 @@
 				<div class="col-12 col-md-12 col-lg-9">
 					<div class="row mb-4 mb-lg-0">
 						<div class=" mb-3">
-							<video class=" w-100" src="{{ asset('/video/lessons_video/' . $course->lesson->find($active_lesson)->link) }}"
-								style="background-color: rgb(17, 14, 14);" controls autoplay height="500px">
+							<video class=" w-100" style="background-color: rgb(17, 14, 14);" controls autoplay height="500px">
+								<source src="{{ asset('/video/lessons_video/' . $course->lesson->find($active_lesson)->link) }}" type="video/mp4">
 							</video>
 						</div>
 						<div class="d-flex justify-content-between align-items-center ">
@@ -41,7 +41,6 @@
 										</a>
 									</li>
 								@endforeach
-
 							</ul>
 						</ul>
 					</div>
